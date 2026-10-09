@@ -3,14 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>URL Finder — Pesquisa inteligente</title>
+<title>URL Finder — Painel de Logs</title>
 <style>
-:root{color-scheme:dark;--bg:#090d18;--panel:#111827;--panel2:#0d1423;--line:#263247;--text:#f2f5ff;--muted:#9aa8bf;--blue:#7c8cff;--cyan:#4de0d0;--danger:#ffbd69}
+:root{color-scheme:dark;--bg:#090d18;--panel:#111827;--panel2:#0d1423;--line:#263247;--text:#f2f5ff;--muted:#9aa8bf;--blue:#7c8cff;--cyan:#4de0d0;--danger:#ffbd69;--success:#34d399}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#18264a 0,transparent 42%),radial-gradient(ellipse at 95% 12%,#123b43 0,transparent 32%),var(--bg);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text);min-height:100vh}
 .wrap{max-width:1120px;margin:auto;padding:34px 22px 60px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:42px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.4px;font-size:18px}.logo{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),#4f62df);box-shadow:0 8px 28px #6374ff38}.pill{border:1px solid #33445e;border-radius:99px;padding:7px 12px;color:#b9c5db;font-size:12px;background:#101a2b}
 .hero{text-align:center;max-width:760px;margin:0 auto 32px}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #34415d;background:#131d31;padding:6px 12px;border-radius:99px;color:#b9c5ff;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}h1{font-size:clamp(36px,6vw,62px);line-height:1.04;letter-spacing:-2.4px;margin:20px 0 16px}h1 span{background:linear-gradient(90deg,#aab5ff,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}.sub{color:var(--muted);font-size:17px;max-width:620px;margin:auto}
-.layout{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}.card{background:linear-gradient(180deg,#131d2eec,#0e1625f2);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 20px 70px #0002}.cardhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.cardhead h2{font-size:16px;margin:0;letter-spacing:-.3px}.step{font-size:11px;color:#aebaff;background:#273052;border-radius:8px;padding:4px 8px;font-weight:800}label{display:block;color:#bdc8da;font-size:13px;font-weight:650;margin:0 0 8px}textarea,input{width:100%;background:#080f1d;border:1px solid #2b3951;color:var(--text);border-radius:13px;padding:13px 14px;outline:none;font:14px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;transition:border .2s,box-shadow .2s}textarea{height:260px;resize:vertical}textarea:focus,input:focus{border-color:#7c8cff;box-shadow:0 0 0 3px #7c8cff1c}input{font-family:inherit}.field{margin-bottom:16px}.hint{color:#8392ab;font-size:12px;margin-top:8px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.btn{border:1px solid #34425b;background:#172237;color:#eaf0ff;border-radius:12px;padding:10px 14px;font-weight:750;font-size:13px;cursor:pointer;transition:transform .15s,filter .15s}.btn:hover{filter:brightness(1.14);transform:translateY(-1px)}.primary{background:linear-gradient(135deg,#7584ff,#5267e8);border-color:transparent;color:white;box-shadow:0 8px 22px #6275ff30}.subtle{background:transparent}.results-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:10px}.count{font-size:12px;color:#b8c6da}.count strong{font-size:22px;color:var(--cyan);margin-right:5px}.resultlist{min-height:260px;max-height:370px;overflow:auto;display:flex;flex-direction:column;gap:9px}.empty{min-height:260px;display:grid;place-items:center;text-align:center;color:#8493ac;padding:22px}.empty svg{margin-bottom:12px;opacity:.75}.result{border:1px solid #26354b;background:#0a1220;border-radius:12px;padding:12px 13px;overflow-wrap:anywhere}.result .url{font:13px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;color:#dce5ff}.result .url a{color:var(--cyan);text-decoration:underline;margin-right:8px}.result .url a:hover{color:#fff}.result .meta{color:#8091ad;font-size:11px;margin-top:6px}.footnote{margin-top:18px;padding:12px 14px;border-radius:12px;background:#1a1a21;border:1px solid #4a3a2a;color:#d3c2a8;font-size:12px}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.feature{border:1px solid #253249;background:#0d1523b8;border-radius:15px;padding:15px}.feature b{display:block;font-size:13px;margin:8px 0 3px}.feature p{font-size:12px;color:#93a1b8;margin:0}.ico{color:var(--cyan);font-size:19px}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#e7fff9;color:#09201d;padding:10px 16px;border-radius:12px;font-weight:800;font-size:13px;display:none;box-shadow:0 8px 30px #0005}
-@media(max-width:760px){.wrap{padding:22px 14px 42px}.top{margin-bottom:32px}.layout{grid-template-columns:1fr}.features{grid-template-columns:1fr}.hero h1{letter-spacing:-1.5px}.card{padding:17px}.sub{font-size:15px}textarea{height:210px}}
+.layout{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}.card{background:linear-gradient(180deg,#131d2eec,#0e1625f2);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 20px 70px #0002}.cardhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.cardhead h2{font-size:16px;margin:0;letter-spacing:-.3px}.step{font-size:11px;color:#aebaff;background:#273052;border-radius:8px;padding:4px 8px;font-weight:800}label{display:block;color:#bdc8da;font-size:13px;font-weight:650;margin:0 0 8px}textarea,input{width:100%;background:#080f1d;border:1px solid #2b3951;color:var(--text);border-radius:13px;padding:13px 14px;outline:none;font:14px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;transition:border .2s,box-shadow .2s}input{font-family:inherit}.field{margin-bottom:16px}.hint{color:#8392ab;font-size:12px;margin-top:8px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.btn{border:1px solid #34425b;background:#172237;color:#eaf0ff;border-radius:12px;padding:10px 14px;font-weight:750;font-size:13px;cursor:pointer;transition:transform .15s,filter .15s}.btn:hover{filter:brightness(1.14);transform:translateY(-1px)}.primary{background:linear-gradient(135deg,#7584ff,#5267e8);border-color:transparent;color:white;box-shadow:0 8px 22px #6275ff30}.subtle{background:transparent}.results-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:10px}.count{font-size:12px;color:#b8c6da}.count strong{font-size:22px;color:var(--cyan);margin-right:5px}.resultlist{min-height:260px;max-height:420px;overflow:auto;display:flex;flex-direction:column;gap:12px}.empty{min-height:260px;display:grid;place-items:center;text-align:center;color:#8493ac;padding:22px}.empty svg{margin-bottom:12px;opacity:.75}
+
+/* Estilo de Cartão Estendido semelhante ao Telegram */
+.log-card{border:1px solid #26354b;background:#0a1220;border-radius:16px;padding:16px;font-size:13px;box-shadow:0 4px 20px #0003}
+.log-header{font-weight:800;color:#f3f4f6;margin-bottom:8px;font-size:13px;letter-spacing:.3px}
+.log-row{margin:5px 0;display:flex;align-items:baseline;flex-wrap:wrap;gap:6px}
+.log-row a{color:var(--cyan);text-decoration:none;word-break:break-all}
+.log-row a:hover{text-decoration:underline}
+.log-badge{background:#1e293b;color:#38bdf8;padding:2px 6px;border-radius:6px;font-size:11px;font-weight:700}
+.log-risk{background:#3b1f1f;color:#f87171;padding:2px 6px;border-radius:6px;font-size:11px;font-weight:700}
+.log-footer-info{margin-top:10px;font-size:11px;color:#94a3b8;border-top:1px solid #1e293b;padding-top:8px}
+
+.footnote{margin-top:18px;padding:12px 14px;border-radius:12px;background:#1a1a21;border:1px solid #4a3a2a;color:#d3c2a8;font-size:12px}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.feature{border:1px solid #253249;background:#0d1523b8;border-radius:15px;padding:15px}.feature b{display:block;font-size:13px;margin:8px 0 3px}.feature p{font-size:12px;color:#93a1b8;margin:0}.ico{color:var(--cyan);font-size:19px}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#e7fff9;color:#09201d;padding:10px 16px;border-radius:12px;font-weight:800;font-size:13px;display:none;box-shadow:0 8px 30px #0005}
+@media(max-width:760px){.wrap{padding:22px 14px 42px}.top{margin-bottom:32px}.layout{grid-template-columns:1fr}.features{grid-template-columns:1fr}.hero h1{letter-spacing:-1.5px}.card{padding:17px}.sub{font-size:15px}}
 </style>
 </head>
 <body>
@@ -20,52 +32,51 @@
     <div class="pill">● Processamento local no navegador</div>
   </header>
   <section class="hero">
-    <div class="eyebrow"><span class="dot"></span> Pesquisa rápida e organizada</div>
-    <h1>Encontre o que procura.<br><span>Sem perder tempo.</span></h1>
-    <p class="sub">Pesquise palavras em listas gigantes de URLs, abra links com um clique e exporte arquivos limpos.</p>
+    <div class="eyebrow"><span class="dot"></span> Painel Analítico de Logs</div>
+    <h1>Encontre o que procura.<br><span>Em formato de relatório.</span></h1>
+    <p class="sub">Visualização detalhada por cartões imitando relatórios inteligentes, com links diretos e busca instantânea.</p>
   </section>
   <main class="layout">
     <section class="card">
-      <div class="cardhead"><h2>Fonte de dados (Arquivo Pesado)</h2><span class="step">01 / ENTRADA</span></div>
+      <div class="cardhead"><h2>Fonte de dados (Logs)</h2><span class="step">01 / ENTRADA</span></div>
       <div class="field">
-        <label>Importação de TXT Gigante (120MB+)</label>
+        <label>Importação de TXT de Logs (URL:User:Pass)</label>
         <div id="fileStatus" style="background:#080f1d;border:1px solid #2b3951;color:var(--text);border-radius:13px;padding:16px;text-align:center;font-size:13px;">
-          Nenhum arquivo carregado.<br><span class="hint">Importe seu arquivo .txt pesado para liberar a busca completa.</span>
+          Nenhum arquivo carregado.<br><span class="hint">Importe seu arquivo .txt para gerar os cartões analíticos.</span>
         </div>
       </div>
       <div class="actions">
-        <label class="btn primary" for="file" style="margin:0;cursor:pointer;flex:1;text-align:center;">↑ Importar Arquivo TXT Grande</label>
+        <label class="btn primary" for="file" style="margin:0;cursor:pointer;flex:1;text-align:center;">↑ Importar Arquivo de Logs TXT</label>
         <input id="file" type="file" accept=".txt,text/plain" hidden>
         <button class="btn subtle" id="clear">Limpar dados</button>
       </div>
     </section>
     <section class="card">
-      <div class="cardhead"><h2>Pesquisar URLs</h2><span class="step">02 / BUSCA</span></div>
-      <div class="field"><label for="query">Termo de pesquisa</label><input id="query" placeholder="Ex.: ituran, login, suporte..." autocomplete="off" disabled><div class="hint">A busca verifica 100% dos dados na memória instantaneamente.</div></div>
+      <div class="cardhead"><h2>Pesquisar Registros</h2><span class="step">02 / BUSCA</span></div>
+      <div class="field"><label for="query">Termo de pesquisa</label><input id="query" placeholder="Ex.: apple, plamev, banco, gov..." autocomplete="off" disabled><div class="hint">A busca analisa os cartões instantaneamente.</div></div>
       <div class="results-top"><div class="count"><strong id="count">0</strong> resultados</div><button class="btn" id="copy">Copiar visíveis</button></div>
-      <div id="results" class="resultlist"><div class="empty"><div><div class="ico">⌕</div><b>Aguardando importação do arquivo</b><div class="hint">Importe o arquivo .txt ao lado para começar a pesquisar.</div></div></div></div>
-      <div class="actions"><button class="btn primary" id="export">↓ Exportar Todos Filtrados (TXT)</button><button class="btn" id="reset">Limpar busca</button></div>
+      <div id="results" class="resultlist"><div class="empty"><div><div class="ico">⌕</div><b>Aguardando importação do arquivo</b><div class="hint">Importe o arquivo .txt ao lado para começar.</div></div></div></div>
+      <div class="actions"><button class="btn primary" id="export">↓ Exportar Filtrados (TXT)</button><button class="btn" id="reset">Limpar busca</button></div>
     </section>
   </main>
   <section class="features">
-    <div class="feature"><div class="ico">⌕</div><b>Busca completa</b><p>Varre 100% das linhas do seu arquivo na memória.</p></div>
-    <div class="feature"><div class="ico">↗</div><b>Links Clicáveis</b><p>Abra qualquer endereço web completo instantaneamente em nova aba.</p></div>
+    <div class="feature"><div class="ico">⚡</div><b>Visual em Cartões</b><p>Estrutura visual limpa separando URL, Usuário e Senha com ícones.</p></div>
+    <div class="feature"><div class="ico">↗</div><b>Links Clicáveis</b><p>Abra qualquer endereço diretamente em uma nova aba com um clique.</p></div>
     <div class="feature"><div class="ico">◈</div><b>Privacidade total</b><p>Processamento 100% local no seu navegador.</p></div>
   </section>
-  <div class="footnote">Dica: agora a URL inteira (incluindo diretórios e /signin) vira um link limpo separado das credenciais por um espaço.</div>
+  <div class="footnote">Dica: os dados são organizados dinamicamente em cartões interativos estilo relatório para facilitar a leitura.</div>
 </div>
 <div class="toast" id="toast">Pronto!</div>
 <script>
 const $=id=>document.getElementById(id);
 let allLines = []; 
 let found = [];    
-let renderLimit = 200; 
+let renderLimit = 100; 
 
 function extractUrl(line){
   const s=line.trim();
   if(!s)return '';
-  // Captura a URL completa com caminhos (ex: idmsa.apple.com/appleauth/auth/authorize/signin)
-  const m=s.match(/(?:https?:\/\/)?(?:[a-z0-9-]+\.)+[a-z]{2,}(?::\d+)?(?:\/[^\s:]*)?/i);
+  const m=s.match(/^(?:https?:\/\/)?(?:[a-z0-9-]+\.)+[a-z]{2,}(?::\d+)?(?:[^\s]*)?/i);
   if(!m)return '';
   return m[0];
 }
@@ -83,9 +94,9 @@ $('file').addEventListener('change', async e => {
   
   allLines = [];
   found = [];
-  renderLimit = 200;
+  renderLimit = 100;
   $('query').disabled = true;
-  $('results').innerHTML = '<div class="empty"><div><div class="ico">↻</div><b id="progressTitle">Lendo arquivo gigante...</b><div class="hint" id="progressText">0 MB processados</div></div></div>';
+  $('results').innerHTML = '<div class="empty"><div><div class="ico">↻</div><b id="progressTitle">Processando cartões...</b><div class="hint" id="progressText">0 MB processados</div></div></div>';
   
   const reader = f.stream().getReader();
   const decoder = new TextDecoder('utf-8');
@@ -98,8 +109,7 @@ $('file').addEventListener('change', async e => {
   const processLine = line => {
     linesRead++;
     const trimmedLine = line.trim();
-    const url = extractUrl(trimmedLine);
-    if (url && trimmedLine && !seen.has(trimmedLine)) {
+    if (trimmedLine && !seen.has(trimmedLine)) {
       seen.add(trimmedLine);
       allLines.push(trimmedLine);
     }
@@ -119,8 +129,8 @@ $('file').addEventListener('change', async e => {
         nextPaint = bytesRead;
         const title = $('progressTitle');
         const info = $('progressText');
-        if (title) title.textContent = 'Carregando arquivo na memória...';
-        if (info) info.textContent = `${(bytesRead / (1024*1024)).toFixed(1)} MB de ${(f.size / (1024*1024)).toFixed(1)} MB · ${allLines.length.toLocaleString('pt-BR')} itens únicos`;
+        if (title) title.textContent = 'Carregando logs na memória...';
+        if (info) info.textContent = `${(bytesRead / (1024*1024)).toFixed(1)} MB de ${(f.size / (1024*1024)).toFixed(1)} MB · ${allLines.length.toLocaleString('pt-BR')} registros`;
         await new Promise(resolve => setTimeout(resolve, 0));
       }
     }
@@ -128,7 +138,7 @@ $('file').addEventListener('change', async e => {
     if (pending) processLine(pending);
 
     $('query').disabled = false;
-    $('fileStatus').innerHTML = `<b>Arquivo carregado com sucesso!</b><br><span class="hint">${allLines.length.toLocaleString('pt-BR')} linhas prontas com links corretos.</span>`;
+    $('fileStatus').innerHTML = `<b>Logs carregados com sucesso!</b><br><span class="hint">${allLines.length.toLocaleString('pt-BR')} registros prontos.</span>`;
     
     runSearch();
     toast(`Arquivo processado com sucesso!`);
@@ -141,7 +151,7 @@ $('file').addEventListener('change', async e => {
 
 function runSearch() {
   const q = $('query').value.trim().toLocaleLowerCase('pt-BR');
-  renderLimit = 200; 
+  renderLimit = 100; 
   
   if (!q) {
     found = allLines;
@@ -158,7 +168,7 @@ function renderResultsList() {
   root.innerHTML = '';
 
   if (!found.length) {
-    root.innerHTML = '<div class="empty"><div><div class="ico">⌕</div><b>Nenhum resultado encontrado</b><div class="hint">Tente alterar o termo de pesquisa.</div></div></div>';
+    root.innerHTML = '<div class="empty"><div><div class="ico">⌕</div><b>Nenhum resultado encontrado</b><br><span class="hint">Tente outro termo de pesquisa.</span></div></div>';
     return;
   }
 
@@ -166,39 +176,55 @@ function renderResultsList() {
   const currentBatch = found.slice(0, renderLimit);
 
   currentBatch.forEach((item, i) => {
-    const el = document.createElement('div'); el.className = 'result';
-    const txt = document.createElement('div'); txt.className = 'url';
-    
-    const extractedUrl = extractUrl(item);
-    if (extractedUrl) {
-      // Cria o link clicável contendo a URL completa até o final do path
-      const a = document.createElement('a');
-      let fullHref = extractedUrl;
-      if (!/^https?:\/\//i.test(fullHref)) {
-        fullHref = 'https://' + fullHref;
-      }
-      a.href = fullHref;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      a.textContent = extractedUrl;
-      txt.appendChild(a);
+    // Tenta separar os campos se estiverem divididos por ":"
+    const parts = item.split(':');
+    let urlPart = parts[0] || '';
+    let userPart = parts[1] || '';
+    let passPart = parts.slice(2).join(':') || '';
 
-      // Adiciona um espaço seguro e o restante da linha (credenciais) sem quebrar o link
-      const remainder = item.slice(extractedUrl.length);
-      if (remainder) {
-        const span = document.createElement('span');
-        span.textContent = '     ' + remainder; // Espaçamento solicitado
-        span.style.color = '#9aa8bf';
-        txt.appendChild(span);
-      }
-    } else {
-      txt.textContent = item;
+    // Se a primeira parte não parecer uma URL, usa o extrator inteligente
+    if (!urlPart.includes('.') && !urlPart.includes('/')) {
+      urlPart = extractUrl(item);
+      const rem = item.slice(urlPart.length).replace(/^[:\s]+/, '');
+      const subParts = rem.split(':');
+      userPart = subParts[0] || '';
+      passPart = subParts.slice(1).join(':') || '';
     }
 
-    const meta = document.createElement('div'); meta.className = 'meta'; meta.textContent = 'Resultado ' + (i+1);
-    el.append(txt, meta); 
-    fragment.appendChild(el);
+    const card = document.createElement('div');
+    card.className = 'log-card';
+
+    // Cabeçalho do Cartão estilo Relatório
+    const header = document.createElement('div');
+    header.className = 'log-header';
+    header.innerHTML = `⚡ EXPERIÊNCIA &nbsp;·&nbsp; <span style="color:var(--cyan)">FAMILIA RIQUEZA</span>`;
+    
+    // URL Clicável
+    const urlRow = document.createElement('div');
+    urlRow.className = 'log-row';
+    let fullHref = urlPart.trim();
+    if (fullHref && !/^https?:\/\//i.test(fullHref)) fullHref = 'https://' + fullHref;
+    urlRow.innerHTML = `🔗 <b>URL:</b> <a href="${fullHref}" target="_blank" rel="noopener noreferrer">${urlPart.trim()}</a>`;
+
+    // Usuário
+    const userRow = document.createElement('div');
+    userRow.className = 'log-row';
+    userRow.innerHTML = `👤 <b>User:</b> <span class="log-badge">${userPart.trim() || 'N/D'}</span>`;
+
+    // Senha
+    const passRow = document.createElement('div');
+    passRow.className = 'log-row';
+    passRow.innerHTML = `🔒 <b>Senha:</b> <span style="color:#fbcfe8;font-weight:600">${passPart.trim() || 'N/D'}</span>`;
+
+    // Rodapé do Card com Status analítico
+    const footer = document.createElement('div');
+    footer.className = 'log-footer-info';
+    footer.innerHTML = `✅ LOGIN BEM-SUCEDIDO &nbsp;|&nbsp; 📊 Risco: <span class="log-risk">1.0/10</span>`;
+
+    card.append(header, urlRow, userRow, passRow, footer);
+    fragment.appendChild(card);
   });
+
   root.appendChild(fragment);
 
   if (renderLimit < found.length) {
@@ -206,7 +232,7 @@ function renderResultsList() {
     moreNote.className = 'hint';
     moreNote.style.textAlign = 'center';
     moreNote.style.padding = '10px';
-    moreNote.textContent = `Mostrando ${renderLimit.toLocaleString('pt-BR')} de ${found.length.toLocaleString('pt-BR')} resultados encontrados. Role para baixo para carregar mais...`;
+    moreNote.textContent = `Mostrando ${renderLimit.toLocaleString('pt-BR')} de ${found.length.toLocaleString('pt-BR')} cartões. Role para baixo para carregar mais...`;
     root.appendChild(moreNote);
   }
 }
@@ -215,7 +241,7 @@ $('results').addEventListener('scroll', () => {
   const root = $('results');
   if (root.scrollTop + root.clientHeight >= root.scrollHeight - 30) {
     if (renderLimit < found.length) {
-      renderLimit += 200;
+      renderLimit += 100;
       renderResultsList();
     }
   }
@@ -228,10 +254,10 @@ $('query').addEventListener('input', () => {
 $('clear').addEventListener('click', () => {
   allLines = [];
   found = [];
-  renderLimit = 200;
+  renderLimit = 100;
   $('query').value = '';$('query').disabled = true;
-  $('count').textContent = '0';$('fileStatus').innerHTML = 'Nenhum arquivo carregado.<br><span class="hint">Importe seu arquivo .txt pesado para liberar a busca completa.</span>';
-  $('results').innerHTML = '<div class="empty"><div><div class="ico">⌕</div><b>Aguardando importação do arquivo</b><div class="hint">Importe o arquivo .txt ao lado para começar a pesquisar.</div></div></div>';
+  $('count').textContent = '0';$('fileStatus').innerHTML = 'Nenhum arquivo carregado.<br><span class="hint">Importe seu arquivo .txt para gerar os cartões analíticos.</span>';
+  $('results').innerHTML = '<div class="empty"><div><div class="ico">⌕</div><b>Aguardando importação do arquivo</b><div class="hint">Importe o arquivo .txt ao lado para começar.</div></div></div>';
   toast('Dados limpos');
 });
 
@@ -244,7 +270,7 @@ $('copy').addEventListener('click', async () => {
   try {
     const textToCopy = found.join('\n');
     await navigator.clipboard.writeText(textToCopy);
-    toast('Todos os resultados filtrados foram copiados!');
+    toast('Todos os registros filtrados foram copiados!');
   } catch(e) { 
     toast('Erro ao copiar'); 
   }
@@ -255,10 +281,10 @@ $('export').addEventListener('click', () => {
   const blob = new Blob([found.join('\n') + '\n'], {type: 'text/plain;charset=utf-8'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'urls-filtradas-completas.txt';
+  a.download = 'logs-cartoes-filtrados.txt';
   a.click();
   URL.revokeObjectURL(a.href);
-  toast('Exportação completa iniciada!');
+  toast('Exportação iniciada!');
 });
 </script>
 </body>
